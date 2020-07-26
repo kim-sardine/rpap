@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
@@ -24,12 +26,18 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+    toolBar: {
+        justifyContent: "space-between",
+    },
+    noTransform: {
+        textTransform: 'none',
+    },
     paper: {
         padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
-    my: {
+    centerContent: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -155,6 +163,15 @@ function App() {
 
     return (
         <div className={classes.root}>
+            <AppBar position="static">
+                <Toolbar className={classes.toolBar}>
+                    <Button color="inherit" className={classes.noTransform}>How to use</Button>
+                    <Typography variant="h6">
+                        Random Picker
+                    </Typography>
+                    <Button color="inherit" className={classes.noTransform}>Side-Punch</Button>
+                </Toolbar>
+            </AppBar>
             <Grid container spacing={3} direction="row" justify="center">
                 <Grid item xs={12} sm={6}>
                     <Paper className={classes.paper} style={{minHeight: 480}}>
@@ -176,7 +193,7 @@ function App() {
                     </Paper>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <Paper className={`${classes.paper} ${classes.my}`} style={{minHeight: 480, position: 'relative'}}>
+                    <Paper className={`${classes.paper} ${classes.centerContent}`} style={{minHeight: 480, position: 'relative'}}>
                         <Fab className={classes.fab} color="primary" aria-label="full screen" size="small">
                             <FullscreenIcon onClick={handle.enter} />
                         </Fab>
