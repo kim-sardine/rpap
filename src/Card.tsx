@@ -1,7 +1,5 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import { Typography, Box, Card, CardContent } from '@material-ui/core';
 
 export class MyCard {
     cells: string[];
@@ -17,9 +15,11 @@ interface CardProps {
 
 function CardComponent({card}: CardProps) {
     return (
-        <Card className="my-card" variant="outlined">
+        <Card className="my-card" variant="elevation">
             <CardContent>
-                {card.cells.map(cell=> <Typography variant="h4">{cell}</Typography>)}
+                <Box m="1rem">
+                    {card.cells.map(cell=> <Typography variant="h4">{cell}</Typography>)}
+                </Box>
             </CardContent>
         </Card>
     );

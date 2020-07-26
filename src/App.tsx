@@ -39,10 +39,21 @@ const useStyles = makeStyles((theme) => ({
         top: theme.spacing(2),
         right: theme.spacing(2),
     },
-  }));
+}));
+
+const dumpUserInputData = `This	is	sample data
+Hugo Lloris	Goalkeeper	 France
+Jan Vertonghen	Defender	 Belgium
+Ben Davies	Defender	 Wales
+Eric Dier	Midfielder	 England
+Moussa Sissoko	Midfielder	 France
+Dele Alli	Midfielder	 England
+Lucas Moura	Midfielder	 Brazil
+Son Heung-Min	Forward	 South Korea`;
+
 
 function App() {
-    const [userInputData, setUserInputData] = useState('');
+    const [userInputData, setUserInputData] = useState(dumpUserInputData);
     const [cardData, setCardData] = useState([new MyCard([])]);
     const [pickerStatus, setPickerStatus] = useState(PickerStatus.INIT);
     const [currentCardIdx, setCurrentCardIdx] = useState(0);
@@ -75,7 +86,7 @@ function App() {
     
     const InitialPage = () => (
         <Typography variant="h5">
-            Paste Excel data and Click Run
+            Click button on the left to start Random Picker!
         </Typography>
     )
 
@@ -139,7 +150,7 @@ function App() {
             setCurrentCardIdx(currentCardIdx + 1);
         }
     }
-    
+
     const classes = useStyles();
 
     return (
@@ -149,7 +160,7 @@ function App() {
                     <Paper className={classes.paper} style={{minHeight: 480}}>
                         <TextField
                             id="user_input"
-                            label="Copy Excel to here"
+                            label="Copy from Excel and Paste it here"
                             value={userInputData} 
                             onChange={onChangeInput}
                             fullWidth
