@@ -161,6 +161,7 @@ function App() {
 
     const classes = useStyles();
 
+    // TODO: Add modal to 'How to use' (with gif?)
     return (
         <div className={classes.root}>
             <AppBar position="static">
