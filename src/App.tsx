@@ -111,6 +111,11 @@ function App() {
                             Next
                         </Button>
                     </Box>
+                    <Box mt="1rem">
+                        <Typography variant="h6">
+                            {currentCardIdx + 1} / {cardData.length}
+                        </Typography>
+                    </Box>
                 </div>
             )
         }
