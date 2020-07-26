@@ -1,7 +1,17 @@
-.title {
-    font-size: 300px;
-}
 
 .fullscreen.fullscreen-enabled {
     background: #fff;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-card {
+    font-size: 30px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.fullscreen-enabled .my-card {
+    min-width: 40vw;
 }

@@ -1,4 +1,7 @@
 import React from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 
 export class MyCard {
     cells: string[];
@@ -12,13 +15,14 @@ interface CardProps {
     card: MyCard
 }
 
-function Card({card}: CardProps) {
-
-  return (
-    <div>
-        {card.cells}
-    </div>
-  );
+function CardComponent({card}: CardProps) {
+    return (
+        <Card className="my-card" variant="outlined">
+            <CardContent>
+                {card.cells.map(cell=> <Typography variant="h4">{cell}</Typography>)}
+            </CardContent>
+        </Card>
+    );
 }
 
-export default Card;
+export default CardComponent;
