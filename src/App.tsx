@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
+    appBar: {
+        marginBottom: theme.spacing(3),
+    },
     toolBar: {
         justifyContent: "space-between",
     },
@@ -94,7 +97,7 @@ function App() {
     
     const InitialPage = () => (
         <Typography variant="h5">
-            Click button on the left to start Random Picker!
+            Click button on the left to start RPAP!
         </Typography>
     )
 
@@ -164,13 +167,13 @@ function App() {
     // TODO: Add modal to 'How to use' (with gif?)
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position="static" className={classes.appBar}>
                 <Toolbar className={classes.toolBar}>
                     <Button color="inherit" className={classes.noTransform}>How to use</Button>
                     <Typography variant="h6">
-                        Random Picker
+                        RPAP - Random Pick and Presenter
                     </Typography>
-                    <Button color="inherit" className={classes.noTransform}>Side-Punch</Button>
+                    <Button color="inherit" className={classes.noTransform} target="_blank" href="https://side-punch.com">Side-Punch</Button>
                 </Toolbar>
             </AppBar>
             <Grid container spacing={3} direction="row" justify="center">
