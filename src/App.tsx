@@ -173,7 +173,7 @@ function App() {
                     <Typography variant="h6">
                         RPAP - Random Pick and Presenter
                     </Typography>
-                    <Button color="inherit" className={classes.noTransform} target="_blank" href="https://side-punch.com">Side-Punch</Button>
+                    <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepun.ch">Side-Punch</Button>
                 </Toolbar>
             </AppBar>
             <Grid container spacing={3} direction="row" justify="center">

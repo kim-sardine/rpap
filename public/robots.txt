@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rpap.side-punch.com/sitemap.xml
+Sitemap: https://rpap.sidepun.ch/sitemap.xml
