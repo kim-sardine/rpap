@@ -9,7 +9,7 @@ export class MyCard {
     }
 }
 
-interface CardProps {
+type CardProps = {
     card: MyCard
 }
 
