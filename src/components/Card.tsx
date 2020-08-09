@@ -10,7 +10,20 @@ export class MyCard {
 }
 
 type CardProps = {
-    card: MyCard
+    card: MyCard;
+}
+
+type CellProps = {
+    cell: string;
+    idx: number;
+}
+
+const Cell = ({cell, idx}: CellProps) => {
+
+    if (idx === 0) {
+        return <Typography variant="h3">{cell}</Typography>;
+    }
+    return <Typography variant="h5" color="textSecondary">{cell}</Typography>;
 }
 
 function CardComponent({card}: CardProps) {
@@ -19,7 +32,7 @@ function CardComponent({card}: CardProps) {
             <Card className="my-card" variant="elevation">
                 <CardContent>
                     <Box m="1rem">
-                        {card.cells.map(cell=> <Typography variant="h4">{cell}</Typography>)}
+                        {card.cells.map((cell, idx)=> <Cell cell={cell} idx={idx} />)}
                     </Box>
                 </CardContent>
             </Card>
