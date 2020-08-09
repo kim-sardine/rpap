@@ -38,7 +38,7 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, classes, setPickerStatus
                 <Button 
                     variant="outlined"
                     color="primary"
-                    onClick={() => setPickerStatus(PickerStatus.RUNNING)}
+                    onClick={startRpap}
                 >
                     Let's Start
                 </Button>
@@ -72,6 +72,10 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, classes, setPickerStatus
                 </div>
             )
         }
+    }
+
+    function startRpap() {
+        setPickerStatus(PickerStatus.RUNNING);
     }
 
     function getNextCard(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
