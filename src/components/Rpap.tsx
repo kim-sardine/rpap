@@ -18,12 +18,13 @@ type RpapProps = {
     pickerStatus: PickerStatus;
     cardData: MyCard[];
     currentCardIdx: number;
+    title: string;
     classes: Record<any, string>;
     setPickerStatus: (p: PickerStatus) => void;
     setCurrentCardIdx: (n: number) => void;
 }
 
-function Rpap({ pickerStatus, cardData, currentCardIdx, classes, setPickerStatus, setCurrentCardIdx }: RpapProps) {
+function Rpap({ pickerStatus, cardData, currentCardIdx, title, classes, setPickerStatus, setCurrentCardIdx }: RpapProps) {
     const handle = useFullScreenHandle();
 
     const InitialPage = () => (
@@ -54,7 +55,17 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, classes, setPickerStatus
         else {
             return (
                 <div>
+                    <Box mb="3rem">
+                        <Typography variant="h4" color="primary" gutterBottom>
+                            {title}
+                        </Typography>
+                    </Box>
                     <CardComponent card={cardData[currentCardIdx]} />
+                    <Box mt="2rem">
+                        <Typography variant="h6">
+                            {currentCardIdx + 1} / {cardData.length}
+                        </Typography>
+                    </Box>
                     <Box mt="2rem">
                         <Button 
                             variant="contained"
@@ -63,11 +74,6 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, classes, setPickerStatus
                         >
                             Next
                         </Button>
-                    </Box>
-                    <Box mt="1rem">
-                        <Typography variant="h6">
-                            {currentCardIdx + 1} / {cardData.length}
-                        </Typography>
                     </Box>
                 </div>
             )
@@ -88,7 +94,7 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, classes, setPickerStatus
     }
 
     return (
-        <Paper className={`${classes.paper} ${classes.centerContent}`} style={{minHeight: 480, position: 'relative'}}>
+        <Paper className={`${classes.paper} ${classes.centerContent}`} style={{minHeight: 550, position: 'relative'}}>
             <Fab className={classes.fab} color="primary" aria-label="full screen" size="small">
                 <FullscreenIcon onClick={handle.enter} />
             </Fab>

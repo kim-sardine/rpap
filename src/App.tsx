@@ -49,18 +49,24 @@ Dele Alli	Midfielder	 England
 Lucas Moura	Midfielder	 Brazil
 Son Heung-Min	Forward	 South Korea`;
 
+const dumpUserInputTitle = '5th Monthly meeting Event!';
 
 function App() {
+    const [userInputTitle, setUserInputTitle] = useState(dumpUserInputTitle);
     const [userInputData, setUserInputData] = useState(dumpUserInputData);
     const [cardData, setCardData] = useState([new MyCard([])]);
     const [pickerStatus, setPickerStatus] = useState(PickerStatus.INIT);
     const [currentCardIdx, setCurrentCardIdx] = useState(0);
     
-    const onChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const onChangeInputData = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setUserInputData(e.target.value);
     };
     
-    const onSubmitData = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const onChangeInputTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setUserInputTitle(e.target.value);
+    };
+    
+    const onSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         let t_cardData: MyCard[] = [];
         let rows = userInputData.split("\n");
         for(let row of rows) {
@@ -100,8 +106,10 @@ function App() {
                 <Grid item xs={12} sm={6}>
                     <UserInput
                         userInputData={userInputData}
-                        onChangeInput={onChangeInput}
-                        onSubmitData={onSubmitData}
+                        onChangeInputData={onChangeInputData}
+                        userInputTitle={userInputTitle}
+                        onChangeInputTitle={onChangeInputTitle}
+                        onSubmitData={onSubmit}
                         classes={classes}
                         />
                 </Grid>
@@ -110,6 +118,7 @@ function App() {
                         pickerStatus={pickerStatus}
                         cardData={cardData}
                         currentCardIdx={currentCardIdx}
+                        title={userInputTitle}
                         classes={classes}
                         setPickerStatus={setPickerStatus}
                         setCurrentCardIdx={setCurrentCardIdx}
