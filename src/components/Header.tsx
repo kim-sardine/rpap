@@ -11,6 +11,8 @@ import {
     DialogContentText,
     DialogTitle
 } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -28,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
 function Header() {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
+    const theme = useTheme();
+    const isXsSize = useMediaQuery(theme.breakpoints.down('xs'));
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -69,7 +73,7 @@ function Header() {
                     </DialogActions>
                 </Dialog>
                 <Typography variant="h6">
-                    RPAP - Random Pick and Presenter
+                    {isXsSize ? 'RPAP' : 'RPAP - Random Pick and Presenter'}
                 </Typography>
                 <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepun.ch">sidepun.ch</Button>
             </Toolbar>
