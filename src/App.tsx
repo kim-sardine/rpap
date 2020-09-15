@@ -39,8 +39,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const dumpUserInputData = `This	is	sample data
-Hugo Lloris	Goalkeeper	 France
+const sampleUserInputData = `Hugo Lloris	Goalkeeper	 France
 Jan Vertonghen	Defender	 Belgium
 Ben Davies	Defender	 Wales
 Eric Dier	Midfielder	 England
@@ -49,11 +48,11 @@ Dele Alli	Midfielder	 England
 Lucas Moura	Midfielder	 Brazil
 Son Heung-Min	Forward	 South Korea`;
 
-const dumpUserInputTitle = '5th Monthly meeting Event!';
+const sampleUserInputTitle = '(Sample) 5th Monthly meeting Event!';
 
 function App() {
-    const [userInputTitle, setUserInputTitle] = useState(dumpUserInputTitle);
-    const [userInputData, setUserInputData] = useState(dumpUserInputData);
+    const [userInputTitle, setUserInputTitle] = useState(sampleUserInputTitle);
+    const [userInputData, setUserInputData] = useState(sampleUserInputData);
     const [cardData, setCardData] = useState([new MyCard([])]);
     const [pickerStatus, setPickerStatus] = useState(PickerStatus.INIT);
     const [currentCardIdx, setCurrentCardIdx] = useState(0);
