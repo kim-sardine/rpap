@@ -1,3 +1,3 @@
-# RPAP - Random Pick and Presenter
+# RPAP - Random Picker and Presenter
 
 Side-punch project

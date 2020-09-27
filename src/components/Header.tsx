@@ -73,7 +73,7 @@ function Header() {
                     </DialogActions>
                 </Dialog>
                 <Typography variant="h6">
-                    {isXsSize ? 'RPAP' : 'RPAP - Random Pick and Presenter'}
+                    {isXsSize ? 'RPAP' : 'RPAP - Random Picker and Presenter'}
                 </Typography>
                 <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepun.ch">sidepun.ch</Button>
             </Toolbar>
