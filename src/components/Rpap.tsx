@@ -1,9 +1,9 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import { Paper, Fab, Typography, Button, Box } from '@material-ui/core';
 import FullscreenIcon from '@material-ui/icons/Fullscreen';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-
 import CardComponent, { MyCard } from './Card';
 
 
@@ -82,14 +82,26 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, title, classes, setPicke
 
     function startRpap() {
         setPickerStatus(PickerStatus.RUNNING);
+        ReactGA.event({
+            category: 'User',
+            action: "Click Let's Start",
+        });
     }
 
     function getNextCard(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         if (currentCardIdx === cardData.length - 1) {
             setPickerStatus(PickerStatus.FINISHED)
+            ReactGA.event({
+                category: 'User',
+                action: "RPAP FINISHED",
+            });
         }
         else {
             setCurrentCardIdx(currentCardIdx + 1);
+            ReactGA.event({
+                category: 'User',
+                action: "Get next card",
+            });
         }
     }
 

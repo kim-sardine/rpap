@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
@@ -8,6 +10,8 @@ import UserInput from './components/UserInput';
 import Rpap, {PickerStatus} from './components/Rpap'
 import './App.css';
 
+ReactGA.initialize('UA-131568070-5');
+ReactGA.pageview('/');
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -84,6 +88,13 @@ function App() {
             setPickerStatus(PickerStatus.READY);
             setCurrentCardIdx(0);
         }
+
+        ReactGA.event({
+            category: 'User',
+            action: 'Click SHUFFLE & RUN',
+            label: 'Total Length',
+            value: t_cardData.length
+        });
     };    
     
     function shuffleCards(cards: MyCard[]) {
@@ -97,7 +108,6 @@ function App() {
 
     const classes = useStyles();
 
-    // TODO: Add modal to 'How to use' (with gif?)
     return (
         <div className={classes.root}>
             <Header />
