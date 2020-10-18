@@ -6,6 +6,7 @@ import { Grid } from '@material-ui/core';
 
 import { MyCard } from './components/Card';
 import Header from './components/Header';
+import Hero from './components/Hero';
 import UserInput from './components/UserInput';
 import Rpap, {PickerStatus} from './components/Rpap'
 import './App.css';
@@ -43,16 +44,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const sampleUserInputData = `Hugo Lloris	Goalkeeper	 France
-Jan Vertonghen	Defender	 Belgium
-Ben Davies	Defender	 Wales
-Eric Dier	Midfielder	 England
-Moussa Sissoko	Midfielder	 France
-Dele Alli	Midfielder	 England
-Lucas Moura	Midfielder	 Brazil
-Son Heung-Min	Forward	 South Korea`;
+const sampleUserInputData = `kim.sardine	sidepunch	Engineer
+onsoo	sidepunch	Manager
+son heong-min	spurs	FW
+park ji-sung	man utd	MF
+ryu hyun-jin	Blue Jays	pitcher`;
 
-const sampleUserInputTitle = '(Sample) 5th Monthly meeting Event!';
+const sampleUserInputTitle = '(Sample) Who will be the winner of this monthly meeting event?';
 
 function App() {
     const [userInputTitle, setUserInputTitle] = useState(sampleUserInputTitle);
@@ -111,6 +109,7 @@ function App() {
     return (
         <div className={classes.root}>
             <Header />
+            <Hero />
             <Grid container spacing={3} direction="row" justify="center">
                 <Grid item xs={12} sm={6}>
                     <UserInput

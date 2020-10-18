@@ -11,8 +11,8 @@ import {
     DialogContentText,
     DialogTitle
 } from '@material-ui/core';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
+// import { useTheme } from '@material-ui/core/styles';
+// import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -30,8 +30,8 @@ const useStyles = makeStyles((theme) => ({
 function Header() {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
-    const theme = useTheme();
-    const isXsSize = useMediaQuery(theme.breakpoints.down('xs'));
+    // const theme = useTheme();
+    // const isXsSize = useMediaQuery(theme.breakpoints.down('xs'));
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -44,6 +44,10 @@ function Header() {
     return (
         <AppBar position="static" className={classes.appBar}>
             <Toolbar className={classes.toolBar}>
+                <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepun.ch">sidepun.ch</Button>
+                <Typography component="h1" variant="h6" >
+                    RPAP
+                </Typography>
                 <Button color="inherit" className={classes.noTransform} onClick={handleClickOpen}>How to use</Button>
                 <Dialog
                     open={open}
@@ -72,10 +76,6 @@ function Header() {
                         </Button>
                     </DialogActions>
                 </Dialog>
-                <Typography variant="h6">
-                    {isXsSize ? 'RPAP' : 'RPAP - Random Picker and Presenter'}
-                </Typography>
-                <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepun.ch">sidepun.ch</Button>
             </Toolbar>
         </AppBar>
     );
