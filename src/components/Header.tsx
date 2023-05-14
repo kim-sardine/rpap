@@ -44,7 +44,7 @@ function Header() {
     return (
         <AppBar position="static" className={classes.appBar}>
             <Toolbar className={classes.toolBar}>
-                <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepun.ch">sidepun.ch</Button>
+                <Button color="inherit" className={classes.noTransform} target="_blank" href="https://sidepunch.co">sidepunch.co</Button>
                 <Typography component="h1" variant="h6" >
                     RPAP
                 </Typography>
