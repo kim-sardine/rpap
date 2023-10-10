@@ -86,7 +86,7 @@ function App() {
     };    
     
     function shuffleCards(cards: MyCard[]) {
-        for(let i = cards.length - 1; i > 0; i--){
+        for(let i = cards.length - 1; i >= 0; i--){
             const j = Math.floor(Math.random() * i)
             const temp = cards[i]
             cards[i] = cards[j]
