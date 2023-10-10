@@ -105,4 +105,3 @@ function Rpap({ pickerStatus, cardData, currentCardIdx, title, classes, setPicke
 }
 
 export default Rpap;
-                

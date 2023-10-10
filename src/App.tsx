@@ -83,14 +83,12 @@ function App() {
             setPickerStatus(PickerStatus.READY);
             setCurrentCardIdx(0);
         }
-    };    
-    
+    };
+
     function shuffleCards(cards: MyCard[]) {
-        for(let i = cards.length - 1; i >= 0; i--){
-            const j = Math.floor(Math.random() * i)
-            const temp = cards[i]
-            cards[i] = cards[j]
-            cards[j] = temp
+        for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
         }
     }
 
@@ -128,4 +126,3 @@ function App() {
     }
     
     export default App;
-                    
